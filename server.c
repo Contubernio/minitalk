@@ -3,6 +3,20 @@
 #include <unistd.h>
 #include "libft/libft.h"
 
+static void	print_server(void)
+{
+	write(1, "\n", 1);
+	write(1, "\n", 1);
+	write(1, " ######  ######## ########  ##     ## ######## ########  \n", 59);
+	write(1, "##    ## ##       ##     ## ##     ## ##       ##     ## \n", 59);
+	write(1, " ######  ######   ########  ##     ## ######   ########\n", 57);
+	write(1, "      ## ##       ##   ##    ##   ##  ##       ##   ##   \n", 59);
+	write(1, "##    ## ##       ##    ##    ## ##   ##       ##    ##\n", 57);
+	write(1, " ######  ######## ##     ##    ###    ######## ##     ## \n", 59);
+	write(1, "\n", 1);
+	write(1, "\n", 1);
+}
+
 static void	action(int sig, siginfo_t *info, void *context)
 {
 	static int				i = 0;
@@ -34,6 +48,7 @@ int	main(void)
 {
 	struct sigaction	s_sigaction;
 
+	print_server();
 	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putchar_fd('\n', 1);

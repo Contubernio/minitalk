@@ -4,6 +4,21 @@
 #include <unistd.h>
 #include "libft/libft.h"
 
+static void	print_client(void)
+{
+	write(1, "\n", 1);
+	write(1, "\n", 1);
+	write(1, " ######  ##       #### ######## ##    ## ########\n", 51);
+	write(1, "##    ## ##        ##  ##       ###   ##    ##\n", 48);
+	write(1, "##       ##        ##  ##       ####  ##    ##\n", 48);
+	write(1, "##       ##        ##  ######   ## ## ##    ##\n", 48);
+	write(1, "##       ##        ##  ##       ##  ####    ##\n", 48);
+	write(1, "##    ## ##        ##  ##       ##   ###    ##\n", 48);
+	write(1, " ######  ######## #### ######## ##    ##    ##\n", 48);
+	write(1, "\n", 1);
+	write(1, "\n", 1);
+}
+
 static void	action(int sig)
 {
 	static int	received = 0;
@@ -48,6 +63,7 @@ int	main(int argc, char **argv)
 {
 	if (argc != 3 || !ft_strlen(argv[2]))
 		return (1);
+	print_client();
 	ft_putstr_fd("Sent    : ", 1);
 	ft_putnbr_fd(ft_strlen(argv[2]), 1);
 	ft_putchar_fd('\n', 1);
